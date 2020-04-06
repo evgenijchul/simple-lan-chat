@@ -1,6 +1,10 @@
 <template>
   <v-app dark>
-    <h1>sdsd</h1>
+    
+    <v-content>
+      
+    </v-content>
+    <nuxt/>
   </v-app>
 </template>
 
