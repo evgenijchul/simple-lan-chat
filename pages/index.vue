@@ -50,6 +50,7 @@ export default {
 
   methods: {
     ...mapMutations(["setUser"]),
+    
     submit() {
       if (this.$refs.form.validate()) {
         const user = {
@@ -68,14 +69,11 @@ export default {
             this.setUser(user);
             this.$router.push("/chat");
           }
+
         });
       }
     },
-    message() {
-      this.$socket.emit("createMessage", {
-        text: "FROME CLIENT"
-      });
-    }
+  
   },
   components: {}
 };

@@ -13,6 +13,7 @@ io.on("connection", socket => {
         if (!data.name || !data.room) {
             return cb('данные некорректны');
         }
+console.log(socket.id);
 
         cb({ userId: socket.id })
 
