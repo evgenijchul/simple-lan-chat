@@ -2,6 +2,9 @@
   <v-layout column justify-center align-center>
     <v-flex xs12 sm8>
       <v-card min-width="300px">
+
+
+        
         <v-card-title>NUXT chat</v-card-title>
         <v-card-text>
           <v-form ref="form" v-model="valid" lazy-validation>
