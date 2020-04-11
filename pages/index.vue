@@ -2,9 +2,11 @@
   <v-layout column justify-center align-center>
     <v-flex xs12 sm8>
       <v-card min-width="300px">
+        <v-snackbar v-model="snackbar" :timeout="6000" top>
+          {{ message }}
+          <v-btn dark text @click="snackbar = false">Close</v-btn>
+        </v-snackbar>
 
-
-        
         <v-card-title>NUXT chat</v-card-title>
         <v-card-text>
           <v-form ref="form" v-model="valid" lazy-validation>
@@ -35,6 +37,8 @@ export default {
     title: "Добро пожаловать в чат"
   },
   data: () => ({
+    message:'',
+    snackbar: false,
     valid: true,
     name: "",
     nameRules: [
@@ -50,10 +54,22 @@ export default {
       console.log("IO connected!");
     }
   },
+mounted(){
+const {message}=this.$route.query;
+if(message === 'noUser')
+{
+  this.message='Введите данные';
+  
+}
+else if(message==='leftChat'){
+  this.message='Пользователь вышел из чата';
+}
+this.snackbar=!!this.message;
 
+},
   methods: {
     ...mapMutations(["setUser"]),
-    
+
     submit() {
       if (this.$refs.form.validate()) {
         const user = {
@@ -62,8 +78,6 @@ export default {
         };
 
         this.$socket.emit("userJoined", user, data => {
-          
-          
           if (typeof data === "string") {
             console.log(data);
           } else {
@@ -72,11 +86,9 @@ export default {
             this.setUser(user);
             this.$router.push("/chat");
           }
-
         });
       }
-    },
-  
+    }
   },
   components: {}
 };

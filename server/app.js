@@ -45,6 +45,14 @@ io.on("connection", socket => {
 
     })
 
+    socket.on('writing', (data )=> {
+        
+        
+        io.to(data.room).emit('newMessage', m('admin', 'Пишет..'))
+
+
+    })
+
     socket.on("userLeft", (id, cb) => {
         const user = users.remove(id)
 

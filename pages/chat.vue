@@ -1,11 +1,23 @@
 <template>
   <div class="chat-wrap">
-    <div class="message-wrap">
-      <Message v-for="m in messages" :key="m.text" :name="m.name" :text="m.text" :owner="m.id===user.id" />
+    <div class="message-wrap" ref="block">
+      <Message
+        v-for="m in messages"
+        :key="m.text"
+        :name="m.name"
+        :text="m.text"
+        :owner="m.id===user.id"
+      />
     </div>
 
     <div class="new-message-wrap">
-      <v-text-field @input="userWriting" outlined label="Enter Message" v-model="newMessage" @keydown.enter="send"></v-text-field>
+      <v-text-field
+        @input="userWriting"
+        outlined
+        label="Enter Message"
+        v-model="newMessage"
+        @keydown.enter="send"
+      ></v-text-field>
     </div>
   </div>
 </template>
@@ -26,10 +38,15 @@ export default {
   }),
   computed: mapState(["user", "messages"]),
   methods: {
-    userWriting(){
-console.log('writing');
-
+    userWriting() {
+      
+      this.$socket.emit("writing", {
+        writing:true,
+        room:this.user.room
+        
+        });
     },
+
     send() {
       this.$socket.emit(
         "createMessage",
@@ -41,6 +58,15 @@ console.log('writing');
           this.newMessage = "";
         }
       );
+    }
+  },
+  watch: {
+    messages() {
+      this.$nextTick(() => {
+        this.$refs.block.scrollTop = this.$refs.block.scrollHeight;
+      })
+      
+      
     }
   },
   components: {
