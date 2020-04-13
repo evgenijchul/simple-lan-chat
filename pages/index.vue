@@ -1,31 +1,24 @@
 <template>
-  <v-layout column justify-center align-center>
-    <v-flex xs12 sm8>
-      <v-card min-width="300px">
-        <v-snackbar v-model="snackbar" :timeout="6000" top>
-          {{ message }}
-          <v-btn dark text @click="snackbar = false">Close</v-btn>
-        </v-snackbar>
 
-        <v-card-title>NUXT chat</v-card-title>
-        <v-card-text>
-          <v-form ref="form" v-model="valid" lazy-validation>
-            <v-text-field
-              v-model="name"
-              :counter="16"
-              :rules="nameRules"
-              label="Введите имя"
-              required
-            ></v-text-field>
 
-            <v-text-field v-model="room" :rules="roomRules" label="Введите комнату" required></v-text-field>
+<form data-role="validator" class="login-form p-6 mx-auto border win-shadow" action="javascript:">
+        
+        <h2 class="text-light">Введите логин/пароль</h2>
+        <hr class="thin mt-4 mb-4 bg-white">
+        <div class="form-group">
+            <input type="text" placeholder="Логин..."  data-validate="required minlength=6">
+        </div>
+        <div class="form-group">
+            <input type="password" data-role="input" placeholder="Enter your password..." data-validate="required minlength=6">
+        </div>
+        <div class="form-group mt-4">
+        
+            <button class="button success">Submit form</button>
+        </div>
+    </form>
 
-            <v-btn :disabled="!valid" color="primary" class="mr-4" @click="submit">Войти</v-btn>
-          </v-form>
-        </v-card-text>
-      </v-card>
-    </v-flex>
-  </v-layout>
+
+
 </template>
 
 <script>
@@ -71,6 +64,9 @@ this.snackbar=!!this.message;
     ...mapMutations(["setUser"]),
 
     submit() {
+
+      console.log(this.name);
+      
       if (this.$refs.form.validate()) {
         const user = {
           name: this.name,
@@ -93,3 +89,12 @@ this.snackbar=!!this.message;
   components: {}
 };
 </script>
+
+<style scoped>
+    .login-form {
+            max-width: 400px;
+            height: auto;
+            top: 50%;
+            
+        }
+</style>
