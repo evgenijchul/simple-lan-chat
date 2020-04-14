@@ -1,5 +1,20 @@
 <template>
   <div>
+
+
+<div class="card">
+    <div class="card-header bg-gray">
+        Card header
+    </div>
+    <div class="card-content p-2">
+        Card with header and footer...
+    </div>
+    <div class="card-footer">
+        Card Footer
+    </div>
+</div>
+
+
     <div v-if="name === 'admin'" class="system">
       <p class="text-xs-center">{{text}}</p>
       <hr />

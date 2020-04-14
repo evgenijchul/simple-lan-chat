@@ -9,6 +9,7 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'metro4:init', content: 'false' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
@@ -26,7 +27,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    'metro4/build/css/metro.min.css'
+    'metro4/build/css/metro-all.min.css'
   ],
   /*
   ** Plugins to load before mounting the App

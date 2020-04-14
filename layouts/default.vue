@@ -1,42 +1,15 @@
 <template>
-
   <div id="app">
-    
-    <v-navigation-drawer app v-model="drawer" mobile-break-point="600">
-      <!-- -->
+    <div class="grid">
+      <div class="row">
+        <div class="cell bg-white h-vh-100">
+          <!-- окно чата -->
 
-      <v-list subheader>
-        <v-subheader>Список людей в комнате</v-subheader>
+          <nuxt />
+        </div>
 
-        <v-list-item v-for="u in users" :key="u.id" @click.prevent>
-          <v-list-item-content>
-            <v-list-item-title v-text="u.name"></v-list-item-title>
-          </v-list-item-content>
-
-          <v-list-item-icon>
-            <v-icon :color="u.id === user.id ? 'deep-purple accent-4' : 'grey'">mdi-chat</v-icon>
-          </v-list-item-icon>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-
-    <v-app-bar app>
-      <!-- -->
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-btn icon @click="exit()">
-        <v-icon>mdi-logout mdi-rotate-180</v-icon>
-      </v-btn>
-      <v-toolbar-title>Чат комнаты {{user.room}}</v-toolbar-title>
-
-      <v-spacer></v-spacer>
-    </v-app-bar>
-
-    <v-content>
-      <div style="height:100%">
-        <nuxt />
       </div>
-    </v-content>
-
+    </div>
   </div>
 </template>
 
@@ -46,8 +19,7 @@ import { mapState, mapMutations } from "vuex";
 export default {
   data() {
     return {
-      drawer: true,
-    
+      drawer: true
     };
   },
 
@@ -55,11 +27,10 @@ export default {
   methods: {
     ...mapMutations(["clearData"]),
     exit() {
-      this.$socket.emit("userLeft", this.user.id, ()=>{
+      this.$socket.emit("userLeft", this.user.id, () => {
         this.$router.push("/?message=leftChat");
-      this.clearData();
-      })
-      
+        this.clearData();
+      });
     }
   }
 };
