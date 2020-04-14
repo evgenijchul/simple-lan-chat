@@ -20,9 +20,9 @@
     </div>
     <div class="form-group">
       <input
-        type="password"
+        type="text"
         data-role="input"
-        placeholder="Enter your password..."
+        placeholder="Введите комнату..."
         data-validate="required"
         ref="password"
         v-model="password"
@@ -50,7 +50,7 @@ export default {
     message: "",
     snackbar: false,
     login: "",
-    password: ""
+    password: "general"
   }),
 
   sockets: {
