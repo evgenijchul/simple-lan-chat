@@ -1,5 +1,7 @@
 <template>
-  <v-app app dark>
+
+  <div id="app">
+    
     <v-navigation-drawer app v-model="drawer" mobile-break-point="600">
       <!-- -->
 
@@ -34,7 +36,8 @@
         <nuxt />
       </div>
     </v-content>
-  </v-app>
+
+  </div>
 </template>
 
 <script>
