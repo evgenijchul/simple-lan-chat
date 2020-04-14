@@ -70,6 +70,7 @@ export default {
     },
 
     send() {
+    if(this.newMessage.length){
       this.$socket.emit(
         "createMessage",
         {
@@ -81,10 +82,11 @@ export default {
         }
       );
     }
+    }
   },
   watch: {
     messages() {
-      console.log('erer');
+     
       
       this.$nextTick(() => {
         this.$refs.block.scrollTop = this.$refs.block.scrollHeight;
