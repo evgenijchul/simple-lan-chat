@@ -13,7 +13,10 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+    script: [
+      { src: 'https://cdn.metroui.org.ua/v4/js/metro.min.js' }
+    ],
   },
   /*
   ** Customize the progress-bar color
@@ -23,6 +26,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    'metro4/build/css/metro.min.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -41,7 +45,7 @@ module.exports = {
   */
   modules: [
     // Doc: https://buefy.github.io/#/documentation
-    'nuxt-buefy',
+    // 'metro4',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa'

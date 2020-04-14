@@ -1,24 +1,24 @@
 <template>
-  <div class="card">
-    
-    <v-snackbar v-model="snackbar" :timeout="6000" top>
-      {{ message }}
-      <v-btn dark text @click="snackbar = false">Close</v-btn>
-    </v-snackbar>
 
-    <div class="card-header">
-      <div class="card-title">NUXT chat</div>
-    </div>
-    <div class="card-content">
-      <b-field label="Name">
-        <b-input v-model="name"></b-input>
-      </b-field>
 
-      <b-field label="room">
-        <b-input v-model="room"></b-input>
-      </b-field>
-    </div>
-  </div>
+<form data-role="validator" class="login-form p-6 mx-auto border win-shadow" action="javascript:">
+        
+        <h2 class="text-light">Введите логин/пароль</h2>
+        <hr class="thin mt-4 mb-4 bg-white">
+        <div class="form-group">
+            <input type="text" placeholder="Логин..."  data-validate="required minlength=6">
+        </div>
+        <div class="form-group">
+            <input type="password" data-role="input" placeholder="Enter your password..." data-validate="required minlength=6">
+        </div>
+        <div class="form-group mt-4">
+        
+            <button class="button success">Submit form</button>
+        </div>
+    </form>
+
+
+
 </template>
 
 <script>
@@ -60,6 +60,9 @@ export default {
     ...mapMutations(["setUser"]),
 
     submit() {
+
+      console.log(this.name);
+      
       if (this.$refs.form.validate()) {
         const user = {
           name: this.name,
@@ -82,3 +85,12 @@ export default {
   components: {}
 };
 </script>
+
+<style scoped>
+    .login-form {
+            max-width: 400px;
+            height: auto;
+            top: 50%;
+            
+        }
+</style>
