@@ -5,12 +5,12 @@
     class="login-form p-6 mx-auto bg-white bd-default border win-shadow"
     action="javascript:"
   >
-    <h2 class="text-light">Введите логин/пароль</h2>
+    <h2 class="text-light">Введите имя и название комнаты</h2>
     <hr class="thin mt-4 mb-4 bg-white" />
     <div class="form-group">
       <input
         type="text"
-        placeholder="Логин..."
+        placeholder="Введите имя..."
         data-validate="required minlength=3"
         data-role="input"
         ref="login"
@@ -55,7 +55,7 @@ export default {
 
   sockets: {
     connect: function() {
-      console.log("IO connected!");
+      // console.log("IO connected!");
     }
   },
   mounted() {
@@ -86,7 +86,7 @@ export default {
         };
         this.$socket.emit("userJoined", user, data => {
           if (typeof data === "string") {
-            console.log(data);
+            // console.log(data);
           } else {
             user.id = data.userId;
             this.setUser(user);
@@ -94,9 +94,6 @@ export default {
           }
         });
       }
-    },
-    invalidForm() {
-      console.log("invalid form!");
     }
   },
   components: {}

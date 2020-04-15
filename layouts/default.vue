@@ -4,7 +4,6 @@
       <div class="row">
         <div class="cell bg-white h-vh-100">
           <!-- окно чата -->
-
           <nuxt />
         </div>
 

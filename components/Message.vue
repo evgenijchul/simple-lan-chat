@@ -2,7 +2,6 @@
   <div>
     <div v-if="name === 'admin'" class="system">
       <small class="ml-2">{{text}}</small>
-      
     </div>
     <div v-else class="wrap">
       <div class="card msg" :class="{owner}">
@@ -25,7 +24,6 @@ export default {
 };
 </script>
 <style lang="css" scoped>
-
 p {
   margin-bottom: 1rem;
 }
@@ -36,25 +34,22 @@ p {
 }
 
 .msg {
-  _padding: 1rem;
   width: 60%;
   box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.3);
   border-radius: 4px;
- 
   position: relative;
   margin: 0;
- 
 }
 
 .card-header {
-   background-color: grey;
+  background-color: grey;
   color: black;
 }
 .owner {
-  
   align-self: flex-end;
 }
-.owner .card-header {background-color: #1ba1e2;
+.owner .card-header {
+  background-color: #1ba1e2;
   color: white;
 }
 </style>
