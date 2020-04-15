@@ -1,7 +1,7 @@
 {
   "name": "lan-chat",
   "version": "1.0.0",
-  "description": "My incredible Nuxt.js project",
+  "description": "Simple lan chat",
   "author": "Chulkov Evgenij",
   "private": true,
   "scripts": {
