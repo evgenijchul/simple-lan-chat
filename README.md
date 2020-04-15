@@ -1,5 +1,6 @@
 # simple-lan-chat
 
+![](ezgif-1-4adddac746a0.gif)
 
 ## Build Setup
 
