@@ -17,7 +17,7 @@
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
     "metro4": "^4.3.6",
-    "nuxt": "^2.0.0",
+    "nuxt": "^3.4.3",
     "nuxt-buefy": "^0.3.26",
     "socket.io": "^2.3.0",
     "vue-socket.io": "^3.0.7"
